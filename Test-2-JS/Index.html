@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task</title>
+</head>
+
+<body>
+
+    <Script>
+        function Sorted(ary) 
+        {
+            if (ary.length < 1) 
+            {
+                return ary;
+            }
+
+            let left = [];
+            let right = [];
+
+            ary = Array.from(new Set(ary));
+            var pivot = ary[ary.length - 1];
+            
+
+            for (var i = 0; i < ary.length - 1; i++) 
+            {
+                if (ary[i] < pivot) 
+                {
+                    left.unshift(ary[i]);
+                } 
+                else 
+                {
+                    right.unshift(ary[i]);
+                }
+            }
+
+            return Sorted(left).concat(pivot, Sorted(right));
+ 
+        }
+
+
+        var ary = [3, 0, 2, 5, -1, 4, 1, 10, 23, 15, 20, 12];
+        document.write("Unsorted Array :  " +ary +" <br> <br>")
+        var ary1 = Sorted(ary);
+        document.write("Sorted Array :  "+ary1.join('.'));
+
+    </script>
+
+
+</body>
+
+</html>
